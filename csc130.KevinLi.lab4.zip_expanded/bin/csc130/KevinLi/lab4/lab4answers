@@ -1,0 +1,32 @@
+Kevin Li Lab4 Answers
+
+1. Describe the code that is executed. Be specific! 
+Graphically describe what the object referenced by discardPile looks like.
+
+	A reference variable named discardPile is created, and the value assigned to this variable is 
+	the memory address of a DiscardPile Object. 
+	
+	A DiscardPile is an example of the abstract data type Stack, where values are introduced into 
+	the last index of the stack to the first, until the stack is fully populated. Objects can only 
+	be removed from the stack from the first index (the most recently introduced) to the last, 
+	not unlike a stack of paper in the real world where you aren't allowed to remove sheets from the bottom.
+
+2. Which card is on the top of the discard pile? What card is associated with the integer 2? 
+What card is associated with the integer 19.
+
+	The card at the top of the display pile is the 4 of Spades, because it was the most recently 
+	introduced. Card(41) was pushed last, 41 mod 13 is 2 resulting in a rank of 4, and 41 / 13 converted \
+	to an integer results in 3, which results in a suit of Spade. 
+	
+	Card(2) would result in a 2 of Clubs, since 2 mod 13 is 2 resulting in a rank of 4, and 2/13 converted to an integer is 0,
+	which results in a suit of Club.
+	
+	Card(19) would result in a 8 of Hearts, since 19 mod 13 is 6 resulting in a rank of 4, and 19/13 converted to an integer is 1,
+	which results in a suit of Heart.
+
+3. Why is it necessary to make the discard pile empty and repopulate it before attempting another call to
+removeTopCards?
+
+	It is necessary to empty and repopulate the discard pile because not doing the above will result in an exception due to 
+	find() not being able to find the 50 card. This is because 50, the King of Spades, will already have been removed by 
+	removeTopCards(new Card(20)), thus the necessity in repopulating the discard pile.

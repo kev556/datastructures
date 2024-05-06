@@ -1,0 +1,61 @@
+1. Did the throws InputMismatchException clause cause any errors? Why, or why not?
+
+	The throws InputMismatchException clause caused an error, because the body of the main() method does not include throw InputMismatchException. Also, the source of the throws InputMismatchException
+	is the Scanner class, and since the system cannot find a defined InputMismatchException as shown by the error displayed.
+
+2. Describe what happened? Include your interpretation of the output displayed. Where is the exception object created?
+	
+	A InputMismatchException was thrown. I interpret the output as the system threw an exception because Scanner.nextInt() is not supposed to receive any non-integer output. The exception object was created
+	in the java.util.Scanner class, at lines 939, 1594, 2258, and 2212. 
+	
+3. Describe the output displayed. How is it different than the output displayed previously?Describe what happened this time vs. what happened previously. Please be specific.
+What was the last statement to execute within the try block?
+
+	The output "Invalid integer entered..." was displayed. This is different from the previous output because a user specified response to an exception was outputted, rather than a system error. 
+	The last statement entered within the try block was month = scanner.nextInt(), because the non-integer was entered at that point and the remainder of the code after that point did not execute.
+	
+4. Explain why the statement done = true; is placed at the end of the try block. Was there a difference in output when you added the nextline statement to the catch block?
+
+	The state done = true is placed at the end of the try block in order to terminate the while loop. Without it, the program would ask you to input three integers indefinitely. 
+	There is an difference in output, as scanner.nextLine allows the program to return back to asking for the M/D/Y.
+	
+5. Why must you enter all three values (month, day, and year) before your program determines that month is invalid? 
+	
+	All three values must be entered before the program determines that it is invalid because the values entered
+	are not used or verified by setMonth, setDate and setYear until they are used to call the object constructor aDate().
+	
+6. What error do you get? Move the catch block/handler so that it is below the others. You shouldn’t get the error now.
+	Why do you think the error was produced when the handler appeared first?
+	
+	The error was unreachable catch block for InputMismatchException. The error was produced precisely because
+	the RuntimeException catch block catches the exception, making the InputMismatch catch block extraneous.
+	
+7. Describe what happens and the output displayed. How is it different than the output displayed in step #13?
+	
+	What is different is that the RuntimeException error message is displayed, instead of the InputMismatchException 
+	message. Since it is outside of the while loop, it will not ask for input again.
+	
+8. Unreported exception errors are produced. Why? Please be specific. Include the code required to fix these errors. 
+Please ask your instructor if you do not know what code is required.
+	
+	Errors are produced because Exceptions must be handled, and there no try catch block to handle DateExceptions
+	has been created within the program as of yet. 
+
+9. Recall that the setMonth method previously threw a RuntimeException and did not need to have a throws clause 
+appended to the end of the method header. Why does it need a throws clause now?
+
+	It requires a throws clause now because it previously threw a runtime exception, which does not need to be handled.
+	DateException is an exception, and therefore must be handled using a throws clause appended to the method.
+	
+10. Describe the code that is executed after the user enters 13, 12, and 2016. Be specific. What type of exception object 
+is created? Where is the exception object created? Which statement in the try block is the last to be executed?
+
+	The code for a Date constructor is executed. The Date constructor calls the setMonth method, but since an invalid
+	input was entered for month, being 13, an exception object was thrown by setMonth and later caught by the 
+	Date constructor method. The last statement to be executed in the program was setMonth(month);, the statement that
+	throws an error. 
+	
+11. What is the difference between the keywords “throw” and “throws”?
+
+	The difference between throw and throws, is that throw specifies that the block of code beforehand will introduce 
+	an exception, while throws indicates that a method will throw an exception somewhere within the body.

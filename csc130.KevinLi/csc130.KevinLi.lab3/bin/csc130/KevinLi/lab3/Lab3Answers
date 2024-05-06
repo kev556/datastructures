@@ -1,0 +1,20 @@
+1. Did the throws InputMismatchException clause cause any errors? Why, or why not?
+
+	The throws InputMismatchException clause caused an error, because the body of the main() method does not include throw InputMismatchException. Also, the source of the throws InputMismatchException
+	is the Scanner class, and since the system cannot find a defined InputMismatchException as shown by the error displayed.
+
+2. Describe what happened? Include your interpretation of the output displayed. Where is the exception object created?
+	
+	A InputMismatchException was thrown. I interpret the output as the system threw an exception because Scanner.nextInt() is not supposed to receive any non-integer output. The exception object was created
+	in the java.util.Scanner class, at lines 939, 1594, 2258, and 2212. 
+	
+3. Describe the output displayed. How is it different than the output displayed previously?Describe what happened this time vs. what happened previously. Please be specific.
+What was the last statement to execute within the try block?
+
+	The output "Invalid integer entered..." was displayed. This is different from the previous output because a user specified response to an exception was outputted, rather than a system error. 
+	The last statement entered within the try block was month = scanner.nextInt(), because the non-integer was entered at that point and the remainder of the code after that point did not execute.
+	
+4. Explain why the statement done = true; is placed at the end of the try block. Was there a difference in output when you added the nextline statement to the catch block?
+
+	The state done = true is placed at the end of the try block in order to terminate the while loop. Without it, the program would ask you to input three integers indefinitely. 
+	There is an difference in output, as scanner.nextLine allows the program to return back to asking for 
